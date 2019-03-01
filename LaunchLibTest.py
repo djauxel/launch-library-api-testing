@@ -20,8 +20,13 @@ launch_list = json_data['launches']
 # Launch Information
 for i in range(0, launch_count):
 
+    for j in range(0, 50):
+        print '=',
+
+    print('\nLAUNCH INFORMATION')
+
     # Order of launch
-    print('Launch Sequence: ' + str(i + 1))
+    print('\nLaunch Sequence: ' + str(i + 1))
 
     # The name of the rocket
     rocket_name = launch_list[i]['name']
@@ -108,5 +113,78 @@ for i in range(0, launch_count):
 
     # TODO: Print the launch_list[i]['rocket']
     #       and launch_list[i]['missions'] information
+
+    print('\nROCKET INFORMATION')
+    
+    # The name of the rocket
+    print('\nRocket Name: ' + rocket_name)
+
+    # The rocket's configuration
+    rocket_config = launch_list[i]['rocket']['configuration']
+    print('Rocket Config: ' + rocket_config)
+
+    # The rocket's family name
+    rocket_family = launch_list[i]['rocket']['familyname']
+    print('Rocket Family: ' + rocket_family)
+
+    # The rocket's wiki URL
+    rocket_wiki_url = launch_list[i]['rocket']['wikiURL']
+    print('Wiki URL: ' + rocket_wiki_url)
+
+    # The image URL of the rocket
+    rocket_image_url = launch_list[i]['rocket']['imageURL']
+    print('Rocket Image URL: ' + rocket_image_url)
+
+    # The image sizes array
+    image_sizes_array = launch_list[i]['rocket']['imageSizes']
+    print('Image Sizes Array: ' + str(image_sizes_array))
+
+    # The size of the "imageSizes" array
+    image_sizes_length = len(image_sizes_array)
+    print('Image Sizes Length: ' + str(image_sizes_length))
+
+    print('\nMISSION INFORMATION')
+
+    # If the "missions" array size is not 0, it'll 
+    # print the mission information.
+    # If the "missions" array size is 0, there 
+    # is no mission information available.
+    if len(launch_list[i]['missions']) != 0:
+
+        # The mission name
+        mission_name = launch_list[i]['missions'][0]['name']
+        print('\nMission Name: ' + mission_name)
+
+        # The mission description
+        mission_description = launch_list[i]['missions'][0]['description']
+        print('Mission Description: ' + mission_description)
+
+        # The mission type
+        mission_type = launch_list[i]['missions'][0]['typeName']
+        if not mission_type:
+            print('Mission Type: Null')
+        if mission_type:
+            print('Mission Type: ' + mission_type)
+        
+    else:
+        print('Mission Name: No mission information available')
+
+    print('\nLAUNCH SERVICE PROVIDER INFORMATION')
+
+    # The LSP name
+    lsp_name = launch_list[i]['lsp']['name']
+    print('\nLSP Name: ' + lsp_name)
+
+    # The LSP abbreviation
+    lsp_abbrev = launch_list[i]['lsp']['abbrev']
+    print('LSP Abbrev: ' + lsp_abbrev)
+
+    # The LSP country code
+    lsp_country_code = launch_list[i]['lsp']['countryCode']
+    print('LSP Country Code: ' + lsp_country_code)
+
+    # The LSP wiki URL
+    lsp_wiki_url = launch_list[i]['lsp']['wikiURL']
+    print('LSP Wiki URL: ' + lsp_wiki_url)
 
     print('\n')
